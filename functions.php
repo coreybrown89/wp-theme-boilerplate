@@ -38,7 +38,7 @@ function custom_theme_scripts() {
 	wp_enqueue_style( 'custom-app-syles', get_template_directory_uri().'/public/css/app.css' );
 	
 	// add main js file to footer
-	wp_enqueue_script( 'main-js', get_template_directory_uri().'/public/js/app.js', false, false );
+	wp_enqueue_script( 'main-js', get_template_directory_uri().'/public/js/app.js', array('jquery'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'custom_theme_scripts' );
 
