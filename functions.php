@@ -5,7 +5,7 @@ if ( ! function_exists( 'custom_theme_setup' ) ) :
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function custom_theme_setup() {
-	
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
@@ -21,7 +21,7 @@ function custom_theme_setup() {
 	) );
 
 	// hide WP admin bar on front end.
-	show_admin_bar( false ); 
+	show_admin_bar( false );
 }
 endif;
 add_action( 'after_setup_theme', 'custom_theme_setup' );
@@ -33,13 +33,11 @@ add_action( 'after_setup_theme', 'custom_theme_setup' );
 function custom_theme_scripts() {
 	// add required WP stylesheet ( theme-name -> style.css )
 	wp_enqueue_style( 'main-style', get_stylesheet_uri() );
-	
+
 	// add main app stylesheet ( theme-name -> public/css/app.css )
 	wp_enqueue_style( 'custom-app-syles', get_template_directory_uri().'/public/css/app.css' );
-	
+
 	// add main js file to footer
-	wp_enqueue_script( 'main-js', get_template_directory_uri().'/public/js/app.js', array('jquery'), '', true );
+	wp_enqueue_script( 'main-js', get_template_directory_uri().'/public/js/app.js', array('jquery'), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'custom_theme_scripts' );
-
-
